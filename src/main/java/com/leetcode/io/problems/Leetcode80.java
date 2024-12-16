@@ -10,10 +10,10 @@ public class Leetcode80 {
     public static void main(String[] args) {
         int[] nums = {0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3}; // Input array
         int val = 2; // Value to remove
-        int[] expectedNums = {0, 1, 2, 3, 4}; // The expected answer with correct length.
+        int[] expectedNums = {0, 1, 1, 2, 2, 3, 3}; // The expected answer with correct length.
         // It is sorted with no values equaling val.
 
-        int k = removeDuplicates(nums); // Calls your implementation
+        int k = removeDuplicatesRevision(nums); // Calls your implementation
 
         assert k == expectedNums.length;
         sort(nums, 0, k); // Sort the first k elements of nums
@@ -40,7 +40,7 @@ public class Leetcode80 {
                 start++;
             }
         }
-        return nums.length - count ;
+        return nums.length - count;
     }
 
     private static void leftShift(int[] a, int start, int end) {
@@ -51,6 +51,26 @@ public class Leetcode80 {
         a[end] = temp;
     }
 
+
+    public static int removeDuplicatesRevision(int[] a) {
+        int k = 1;
+        int i = 1;
+        if(a.length<2){
+            return a.length;
+        }
+        while (i < a.length - 1) {
+            if (a[i - 1] != a[i]) {
+                a[k++] = a[i];
+            } else {
+                if (a[i + 1] != a[i]) {
+                    a[k++] = a[i];
+                }
+            }
+            i++;
+        }
+        a[k] = a[i];
+        return k;
+    }
 
     public static int removeDuplicatesMap(int[] nums) {
         Map<Integer, Integer> keyToFreq = new TreeMap<>();

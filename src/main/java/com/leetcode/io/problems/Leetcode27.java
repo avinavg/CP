@@ -1,4 +1,4 @@
-package com.leetcode.io.leetcode;
+package com.leetcode.io.problems;
 
 import static java.util.Arrays.sort;
 
@@ -9,7 +9,7 @@ public class Leetcode27 {
         int[] expectedNums = {0, 1, 4, 0, 3}; // The expected answer with correct length.
         // It is sorted with no values equaling val.
 
-        int k = removeElement(nums, val); // Calls your implementation
+        int k = removeElementRevise(nums, val); // Calls your implementation
 
         assert k == expectedNums.length;
         sort(nums, 0, k); // Sort the first k elements of nums
@@ -37,6 +37,20 @@ public class Leetcode27 {
             fp--;
         }
         return nums.length - k;
+    }
+
+    private static int removeElementRevise(int[] nums, int val) {
+        int start=0;
+        int end = nums.length-1;
+        while(start<=end){
+            if(nums[start]==val){
+                swap(nums,start,end);
+                end--; //shift end when swapped, dont need to do start++
+            }else {
+                start++; //only start when nums[start] is not val
+            }
+        }
+        return start;
     }
 
     public static void swap(int[] a, int f, int l) {

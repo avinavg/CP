@@ -2,7 +2,7 @@ package com.leetcode.io.leetcode;
 
 public class Leetcode121 {
     public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{7, 5, 3, 6, 4}));
+        System.out.println(maxProfitRevise(new int[]{7, 5, 3, 6, 4}));
     }
 
     private static int maxProfit(int[] a) {
@@ -17,5 +17,19 @@ public class Leetcode121 {
             bp++;
         }
         return maxGross;
+    }
+
+    private static int maxProfitRevise(int[] a) {
+        int buyingPrice = a[0];
+        int maxProfit = 0;
+        for (int value : a) {
+            if (buyingPrice > value) {
+                buyingPrice = value;
+            }
+            if (value - buyingPrice > maxProfit) {
+                maxProfit = value - buyingPrice;
+            }
+        }
+        return maxProfit;
     }
 }
