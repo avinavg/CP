@@ -1,4 +1,4 @@
-package com.leetcode.io.leetcode;
+package com.leetcode.io.problems;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,4 +37,5 @@ public class Leetcode383 {
         }
         return true;
     }
+
 }

@@ -1,4 +1,4 @@
-package com.leetcode.io.leetcode;
+package com.leetcode.io.problems;
 
 public class Leetcode121 {
     public static void main(String[] args) {

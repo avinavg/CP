@@ -1,17 +1,24 @@
-package com.leetcode.io.leetcode;
-
-import java.util.List;
+package com.leetcode.io.problems;
 
 public class Leetcode15 {
     public static void main(String[] args) {
 
     }
 
-//    public List<List<Integer>> threeSum(int[] nums) {
-//        Map<>
-//        for(int i =0; i<nums.length; i++){
-//            for()
+    public void threeSum(int[] nums) {
+//        List<List<Integer>> result = new ArrayList<>();
+//        Arrays.sort(nums);
+//        for (int i = 0; i < nums.length - 2; i++) {
+//            int start = i + 1;
+//            int end = nums.length - 1;
+//            if (start + end < Math.abs(nums[i]))
+//                break;
+//            while (start < end) {
+//                if (start + end + nums[i] == 0) {
+//                    result.add(new ArrayList<>(Arrays.asList(start, end, nums[i])));
+//                }
+//            }
 //        }
-//
-//    }
+        return;
+    }
 }

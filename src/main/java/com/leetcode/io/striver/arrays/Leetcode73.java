@@ -1,6 +1,8 @@
-package com.leetcode.io.problems;
+package com.leetcode.io.striver.arrays;
 
-import java.util.Arrays;
+import javafx.util.Pair;
+
+import java.util.*;
 
 public class Leetcode73 {
 
@@ -25,20 +27,22 @@ public class Leetcode73 {
     }
 
     public static void setZeroes(int[][] matrix) {
-        int zerox[] = new int[matrix.length];
-        int zeroy[] = new int[matrix[0].length];
-        int k = 0;
+        Set<Integer> zerox = new HashSet<>();
+        Set<Integer> zeroy = new HashSet<>();
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] == 0) {
-                    zeroy[k] = i;
-                    zerox[k++] = j;
+                    zerox.add(i);
+                    zeroy.add(j);
                 }
             }
         }
-        for(int i=0; i<k;i++){
-            Arrays.fill(matrix[zerox[i]],0,matrix[zerox[i]].length,0);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (zerox.contains(i) || zeroy.contains(j)) {
+                    matrix[i][j] = 0;
+                }
+            }
         }
-
     }
 }
