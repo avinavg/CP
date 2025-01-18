@@ -37,6 +37,5 @@ public class LeetCode392 {
             iter2++;
         }
         return iter1 >= s.length();
-
     }
 }
