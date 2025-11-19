@@ -11,11 +11,8 @@ public class Leetcode55 {
     private static boolean canJump(int[] a) {
         int len = a.length;
         if (a[0] == 0) {
-            if (len == 1) { // If there's only one element in the array
-                return true; // Return true as it's already at the last index
-            } else {
-                return false;
-            }
+            // If there's only one element in the array
+            return len == 1; // Return true as it's already at the last index
         }
         List<Integer> zeroIndices = new ArrayList<>();
         for (int i = 0; i < len; i++) {
@@ -55,4 +52,22 @@ public class Leetcode55 {
 
         return false;
     }
+
+    public static boolean canJumpr(int[] a) {
+        int totalJump = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            if (i > totalJump) {
+                return false;
+            }
+
+            totalJump = Math.max(totalJump, totalJump + a[i]);
+            if (totalJump > a.length) {
+                return true;
+            }
+        }
+        return true;
+    }
+
+
 }

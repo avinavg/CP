@@ -21,4 +21,24 @@ public class Leetcode1768 {
         }
         return sb.toString();
     }
+
+
+    static String mergeAlternatelyRevise(String word1, String word2) {
+        int l1 = word1.length();
+        int l2 = word2.length();
+        StringBuilder sb = new StringBuilder(l1 + l2);
+        int i = 0;
+        for (; i < Math.min(l1, l2); i++) {
+            sb.append(word1.charAt(i));
+            sb.append(word2.charAt(i));
+        }
+
+        if (l1 > l2) {
+            sb.append(word1, i + 1, l1 - 1);
+        } else {
+            sb.append(word2, i + 1, l1 - 1);
+        }
+
+        return sb.toString();
+    }
 }

@@ -16,4 +16,16 @@ public class Leetcode151 {
         }
         return sb.toString().strip();
     }
+
+    static String reverseworkds(String s) {
+        String[] words = s.trim().split(" ");
+        StringBuilder toReturn = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            if (!words[i].isBlank()) {
+                toReturn.append(words[i]);
+                if (i > 0) toReturn.append(" ");
+            }
+        }
+        return toReturn.toString();
+    }
 }
